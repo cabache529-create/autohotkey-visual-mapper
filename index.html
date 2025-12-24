@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
@@ -17,7 +17,7 @@
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       min-height: 100vh;
       padding: 20px;
-      padding-top: 280px;
+      padding-top: 190px;
     }
     
     .fixed-header {
@@ -28,12 +28,250 @@
       background: white;
       box-shadow: 0 4px 12px rgba(0,0,0,0.15);
       z-index: 1000;
-      padding: 20px;
+      padding: 15px 20px;
     }
     
     .fixed-header-content {
       max-width: 1600px;
       margin: 0 auto;
+    }
+
+    /* 言語切替ボタン */
+    .lang-toggle {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      background: #667eea;
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 13px;
+      transition: all 0.3s;
+      z-index: 10;
+    }
+    
+    .lang-toggle:hover {
+      background: #5568d3;
+      transform: translateY(-1px);
+    }
+
+    /* レイヤータブ */
+    .layer-tabs {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 12px;
+      border-bottom: 2px solid #e0e0e0;
+      padding-bottom: 8px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .layer-tab {
+      padding: 8px 15px;
+      background: #f5f5f5;
+      border: 2px solid #ddd;
+      border-radius: 6px 6px 0 0;
+      cursor: pointer;
+      transition: all 0.3s;
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .layer-tab.active {
+      background: #667eea;
+      color: white;
+      border-color: #667eea;
+    }
+
+    .layer-tab:hover:not(.active) {
+      background: #e8e8e8;
+    }
+
+    .layer-tab .layer-key-badge {
+      background: #ffd93d;
+      color: #000;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-size: 10px;
+      font-weight: 700;
+    }
+
+    .layer-tab.active .layer-key-badge {
+      background: #fff;
+      color: #667eea;
+    }
+
+    .layer-tab .delete-layer {
+      margin-left: 5px;
+      color: #ff4444;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .layer-tab.active .delete-layer {
+      color: #ffcccc;
+    }
+
+    .add-layer-btn {
+      padding: 8px 15px;
+      background: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+
+    .add-layer-btn:hover {
+      background: #45a049;
+    }
+
+    /* レイヤー設定パネル */
+    .layer-settings {
+      background: #f9f9f9;
+      padding: 12px;
+      border-radius: 6px;
+      margin-bottom: 12px;
+    }
+
+    .layer-settings h3 {
+      margin-bottom: 8px;
+      color: #333;
+      font-size: 14px;
+    }
+
+    .setting-row {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .setting-row label {
+      min-width: 110px;
+      font-weight: 600;
+      font-size: 13px;
+    }
+
+    .setting-row input,
+    .setting-row select {
+      padding: 6px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 13px;
+      flex: 1;
+    }
+
+    /* 選択行（一行レイアウト） */
+    .selection-row {
+      display: flex;
+      column-gap: 150px;
+      row-gap: 10px;
+      margin-bottom: 0;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .selection-group {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      min-width: 400px;
+    }
+
+    .inline-selection {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex: 1;
+    }
+
+    .inline-label {
+      font-weight: 700;
+      color: #2d3748;
+      font-size: 13px;
+      min-width: 60px;
+    }
+
+    .mode-btn {
+      padding: 8px 16px;
+      border: 2px solid #ddd;
+      background: white;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 600;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+
+    .mode-btn:hover {
+      background: #f5f5f5;
+    }
+
+    .mode-btn.active-input {
+      background: #60a5fa;
+      color: white;
+      border-color: #60a5fa;
+    }
+
+    .mode-btn.active-output {
+      background: #f472b6;
+      color: white;
+      border-color: #f472b6;
+    }
+    
+    .current-selection {
+      display: flex;
+      gap: 4px;
+      flex-wrap: wrap;
+      min-height: 32px;
+      padding: 6px 10px;
+      background: #f7fafc;
+      border: 2px solid #e2e8f0;
+      border-radius: 5px;
+      font-size: 13px;
+      max-width: 300px;
+      min-width: 200px;
+    }
+    
+    .current-selection.input-mode {
+      border-color: #60a5fa;
+      background: #eff6ff;
+    }
+    
+    .current-selection.output-mode {
+      border-color: #f472b6;
+      background: #fdf2f8;
+    }
+    
+    .selection-tag {
+      background: #cbd5e0;
+      color: #2d3748;
+      padding: 3px 8px;
+      border-radius: 3px;
+      font-size: 11px;
+      font-weight: 600;
+    }
+    
+    .selection-tag.input {
+      background: #60a5fa;
+      color: white;
+    }
+    
+    .selection-tag.output {
+      background: #f472b6;
+      color: white;
     }
 
     /* レイヤータブ */
@@ -845,6 +1083,11 @@
 <body>
   <div class="fixed-header">
     <div class="fixed-header-content">
+      <!-- 言語切替ボタン -->
+      <button class="lang-toggle" onclick="toggleLanguage()">
+        🌐 <span id="langBtn">JA</span>
+      </button>
+      
       <!-- レイヤータブ -->
       <div class="layer-tabs" id="layerTabs">
         <!-- JavaScriptで動的生成 -->
@@ -852,45 +1095,44 @@
 
       <!-- レイヤー設定 -->
       <div class="layer-settings" id="layerSettings">
-        <h3>レイヤー設定</h3>
+        <h3 id="layerSettingsTitle">レイヤー設定</h3>
         <div class="setting-row">
-          <label>キーボード配列:</label>
+          <label id="labelLayout">キーボード配列:</label>
           <select id="keyboardLayoutSelect" onchange="changeKeyboardLayout()">
             <option value="us">US配列</option>
             <option value="jis">日本語配列 (JIS)</option>
           </select>
         </div>
         <div class="setting-row">
-          <label>レイヤー名:</label>
+          <label id="labelLayerName">レイヤー名:</label>
           <input type="text" id="layerName" placeholder="レイヤー名を入力">
         </div>
         <div class="setting-row" id="layerKeyRow" style="display: none;">
-          <label>レイヤーキー:</label>
+          <label id="labelKey">レイヤーキー:</label>
           <select id="layerKeySelect">
             <option value="">選択してください</option>
           </select>
         </div>
       </div>
 
-      <!-- 選択モード -->
-      <div class="selection-mode">
-        <label>選択モード:</label>
-        <button id="inputModeBtn" class="mode-btn active-input" onclick="setSelectionMode('input')">入力キー選択</button>
-        <button id="outputModeBtn" class="mode-btn" onclick="openOutputModal()">出力キー選択 (モーダル)</button>
-      </div>
-
-      <!-- 現在の選択 -->
-      <div class="header-row">
-        <div class="header-section">
-          <div class="header-label">入力キー</div>
-          <div id="inputKeysDisplay" class="current-selection input-mode">
-            <span style="color: #999;">キーを選択してください</span>
+      <!-- 選択モードと現在の選択（一行） -->
+      <div class="selection-row">
+        <div class="selection-group">
+          <button id="inputModeBtn" class="mode-btn active-input" onclick="setSelectionMode('input')">入力キー選択</button>
+          <div class="inline-selection">
+            <div class="inline-label" id="labelInputKeys">入力キー</div>
+            <div id="inputKeysDisplay" class="current-selection input-mode">
+              <span style="color: #999;">キーを選択してください</span>
+            </div>
           </div>
         </div>
-        <div class="header-section">
-          <div class="header-label">出力キー</div>
-          <div id="outputKeysDisplay" class="current-selection output-mode">
-            <span style="color: #999;">キーを選択してください</span>
+        <div class="selection-group">
+          <button id="outputModeBtn" class="mode-btn" onclick="openOutputModal()">出力キー選択 (モーダル)</button>
+          <div class="inline-selection">
+            <div class="inline-label" id="labelOutputKeys">出力キー</div>
+            <div id="outputKeysDisplay" class="current-selection output-mode">
+              <span style="color: #999;">キーを選択してください</span>
+            </div>
           </div>
         </div>
       </div>
@@ -898,11 +1140,6 @@
   </div>
 
   <div class="container">
-    <h1>🎹 AutoHotkey v2 レイヤーキーマップエディタ <span style="color: #4CAF50; font-size: 0.6em;">【SendEvent版】</span></h1>
-    <p style="text-align: center; color: #666; margin-top: 10px; font-size: 0.9em;">
-      すべてのキー出力にSendEvent()を使用 - キー漏れを完全防止
-    </p>
-
     <!-- キーボードレイアウト -->
     <div class="keyboard-container">
       <div class="keyboard" id="keyboard">
@@ -912,16 +1149,16 @@
 
     <!-- マッピング制御 -->
     <div class="controls">
-      <div style="flex: 1; padding: 10px 0; color: #666; font-size: 14px;">
+      <div style="flex: 1; padding: 10px 0; color: #666; font-size: 14px;" id="usageHint">
         💡 <strong>使い方:</strong> 入力キーを選択 → 「出力キー選択」でモーダルを開いて出力を選択 → モーダル内の「マッピング追加」ボタンで登録
       </div>
-      <button onclick="clearSelection()">🔄 選択クリア</button>
-      <button onclick="clearAllMappings()" style="background: #ff6b6b;">🗑️ 全マッピングクリア</button>
+      <button onclick="clearSelection()" id="btnClearSelection">🔄 選択クリア</button>
+      <button onclick="clearAllMappings()" style="background: #ff6b6b;" id="btnClearAllMappings">🗑️ 全マッピングクリア</button>
     </div>
 
     <!-- マッピングリスト -->
     <div class="mappings-section">
-      <h2>マッピング一覧</h2>
+      <h2 id="mappingListTitle">マッピング一覧</h2>
       <ul id="mappingList" class="mapping-list">
         <!-- JavaScriptで動的生成 -->
       </ul>
@@ -929,13 +1166,12 @@
 
     <!-- AHK出力 -->
     <div class="mappings-section">
-      <h2>AutoHotkey v2 スクリプト</h2>
-      <pre id="ahkOutput">; レイヤーキーマップエディタで生成されたスクリプト
-; マッピングを追加してください</pre>
+      <h2 id="ahkScriptTitle">AutoHotkey v2 スクリプト</h2>
+      <pre id="ahkOutput"></pre>
       <div class="output-controls">
-        <button onclick="downloadAHK()">💾 AHKv2ダウンロード</button>
-        <button onclick="saveJSON()">📁 設定保存 (.json)</button>
-        <label style="background: #4CAF50; cursor: pointer; padding: 10px 20px; border-radius: 6px; color: white; font-weight: 600;">
+        <button onclick="downloadAHK()" id="downloadBtn">💾 AHKv2ダウンロード</button>
+        <button onclick="saveJSON()" id="saveBtn">📁 設定保存 (.json)</button>
+        <label style="background: #4CAF50; cursor: pointer; padding: 10px 20px; border-radius: 6px; color: white; font-weight: 600;" id="loadBtn">
           📂 設定読込 (.json)
           <input type="file" accept=".json" onchange="loadJSON(event)" style="display: none;">
         </label>
@@ -1571,6 +1807,12 @@
       updateSelectedKeysDisplay();
       populateLayerKeySelect();
       
+      // 初期プレースホルダーを設定
+      const ahkOutput = document.getElementById('ahkOutput');
+      if (ahkOutput) {
+        ahkOutput.textContent = translations[currentLang].scriptPlaceholder;
+      }
+      
       // ウィンドウリサイズ時にも調整
       window.addEventListener('resize', adjustBodyPadding);
     }
@@ -1622,7 +1864,8 @@
       // 新規レイヤー追加ボタン
       const addBtn = document.createElement('button');
       addBtn.className = 'add-layer-btn';
-      addBtn.textContent = '+ 新規レイヤー';
+      addBtn.id = 'addLayerBtn';
+      addBtn.textContent = translations[currentLang].addLayerBtn || '+ 新規レイヤー';
       addBtn.onclick = addLayer;
       tabsContainer.appendChild(addBtn);
     }
@@ -1632,10 +1875,28 @@
       const layer = layers.find(l => l.id === currentLayerId);
       if (!layer) return;
 
+      // レイヤー選択ドロップダウンを更新
+      const layerSelect = document.getElementById('layerSelect');
+      if (layerSelect) {
+        layerSelect.innerHTML = '';
+        layers.forEach(l => {
+          const option = document.createElement('option');
+          option.value = l.id;
+          option.textContent = l.name;
+          option.selected = l.id === currentLayerId;
+          layerSelect.appendChild(option);
+        });
+      }
+
       document.getElementById('layerName').value = layer.name;
       document.getElementById('layerName').onchange = (e) => {
         layer.name = e.target.value;
-        renderLayerTabs();
+        // レイヤー選択も更新
+        const layerSelect = document.getElementById('layerSelect');
+        if (layerSelect) {
+          const option = layerSelect.querySelector(`option[value="${layer.id}"]`);
+          if (option) option.textContent = e.target.value;
+        }
       };
 
       const layerKeyRow = document.getElementById('layerKeyRow');
@@ -1644,7 +1905,7 @@
       if (layer.isBase) {
         layerKeyRow.style.display = 'none';
       } else {
-        layerKeyRow.style.display = 'flex';
+        layerKeyRow.style.display = 'block';
         
         // レイヤーキー選択肢を生成（使用中のキーを無効化）
         populateLayerKeySelect();
@@ -1843,6 +2104,27 @@
       renderKeyboard();
       clearSelection();
       updateMappingList();
+    }
+
+    // 新しいレイヤーを追加
+    function addNewLayer() {
+      const newLayerId = Date.now().toString();
+      const newLayerNumber = layers.length + 1;
+      const newLayer = {
+        id: newLayerId,
+        name: `Layer${newLayerNumber}`,
+        isBase: false,
+        layerKey: null,
+        mappings: []
+      };
+      
+      layers.push(newLayer);
+      currentLayerId = newLayerId;
+      renderLayerSettings();
+      renderKeyboard();
+      clearSelection();
+      updateMappingList();
+      generateScript();
     }
 
     // キーボード描画
@@ -3104,6 +3386,165 @@
       outputModifiers = [...tempOutputModifiers];
       updateSelectedKeysDisplay();
       closeOutputModal();
+    }
+
+    // 言語切替機能
+    let currentLang = 'ja';
+    
+    const translations = {
+      ja: {
+        headerTitle: 'AutoHotkey v2 Visual Mapper',
+        labelLayout: 'キーボード配列:',
+        labelLayerName: 'レイヤー名:',
+        labelKey: 'レイヤーキー:',
+        labelSelectionMode: '選択モード:',
+        labelInputKeys: '入力キー',
+        labelOutputKeys: '出力キー',
+        layerSettingsTitle: 'レイヤー設定',
+        inputModeBtn: '入力キー選択',
+        outputModeBtn: '出力キー選択 (モーダル)',
+        inputPlaceholder: 'キーを選択してください',
+        outputPlaceholder: 'キーを選択してください',
+        layerPlaceholder: 'レイヤー名を入力',
+        selectKey: '選択してください',
+        usLayout: 'US配列',
+        jisLayout: '日本語配列 (JIS)',
+        title: 'AutoHotkey v2 Visual Mapper',
+        usageHint: '💡 <strong>使い方:</strong> 入力キーを選択 → 「出力キー選択」でモーダルを開いて出力を選択 → モーダル内の「マッピング追加」ボタンで登録',
+        mappingListTitle: 'マッピング一覧',
+        ahkScriptTitle: 'AutoHotkey v2 スクリプト',
+        downloadBtn: '💾 AHKv2ダウンロード',
+        saveBtn: '📁 設定保存 (.json)',
+        loadBtn: '📂 設定読込 (.json)',
+        btnClearSelection: '🔄 選択クリア',
+        btnClearAllMappings: '🗑️ 全マッピングクリア',
+        addLayerBtn: '+ 新規レイヤー',
+        scriptPlaceholder: '; Visual Mapperで生成されたスクリプト\n; マッピングを追加してください'
+      },
+      en: {
+        headerTitle: 'AutoHotkey v2 Visual Mapper',
+        labelLayout: 'Keyboard Layout:',
+        labelLayerName: 'Layer Name:',
+        labelKey: 'Layer Key:',
+        labelSelectionMode: 'Selection Mode:',
+        labelInputKeys: 'Input Keys',
+        labelOutputKeys: 'Output Keys',
+        layerSettingsTitle: 'Layer Settings',
+        inputModeBtn: 'Select Input Keys',
+        outputModeBtn: 'Select Output Keys (Modal)',
+        inputPlaceholder: 'Select a key',
+        outputPlaceholder: 'Select a key',
+        layerPlaceholder: 'Enter layer name',
+        selectKey: 'Please select',
+        usLayout: 'US Layout',
+        jisLayout: 'Japanese Layout (JIS)',
+        title: 'AutoHotkey v2 Visual Mapper',
+        usageHint: '💡 <strong>How to use:</strong> Select input key → Click "Select Output Keys" to open modal → Select output → Click "Add Mapping"',
+        mappingListTitle: 'Mapping List',
+        ahkScriptTitle: 'AutoHotkey v2 Script',
+        downloadBtn: '💾 Download AHKv2',
+        saveBtn: '📁 Save Settings (.json)',
+        loadBtn: '📂 Load Settings (.json)',
+        btnClearSelection: '🔄 Clear Selection',
+        btnClearAllMappings: '🗑️ Clear All Mappings',
+        addLayerBtn: '+ New Layer',
+        scriptPlaceholder: '; Script generated by Visual Mapper\n; Please add mappings'
+      }
+    };
+    
+    function toggleLanguage() {
+      currentLang = currentLang === 'ja' ? 'en' : 'ja';
+      updateLanguage();
+    }
+    
+    function updateLanguage() {
+      const lang = translations[currentLang];
+      
+      // ヘッダー要素を更新
+      const langBtn = document.getElementById('langBtn');
+      if (langBtn) langBtn.textContent = currentLang === 'ja' ? 'JA' : 'EN';
+      
+      const labelLayout = document.getElementById('labelLayout');
+      if (labelLayout) labelLayout.textContent = lang.labelLayout;
+      
+      const labelLayerName = document.getElementById('labelLayerName');
+      if (labelLayerName) labelLayerName.textContent = lang.labelLayerName;
+      
+      const labelKey = document.getElementById('labelKey');
+      if (labelKey) labelKey.textContent = lang.labelKey;
+      
+      const layerSettingsTitle = document.getElementById('layerSettingsTitle');
+      if (layerSettingsTitle) layerSettingsTitle.textContent = lang.layerSettingsTitle;
+      
+      const labelSelectionMode = document.getElementById('labelSelectionMode');
+      if (labelSelectionMode) labelSelectionMode.textContent = lang.labelSelectionMode;
+      
+      const inputModeBtn = document.getElementById('inputModeBtn');
+      if (inputModeBtn) inputModeBtn.textContent = lang.inputModeBtn;
+      
+      const outputModeBtn = document.getElementById('outputModeBtn');
+      if (outputModeBtn) outputModeBtn.textContent = lang.outputModeBtn;
+      
+      const labelInputKeys = document.getElementById('labelInputKeys');
+      if (labelInputKeys) labelInputKeys.textContent = lang.labelInputKeys;
+      
+      const labelOutputKeys = document.getElementById('labelOutputKeys');
+      if (labelOutputKeys) labelOutputKeys.textContent = lang.labelOutputKeys;
+      
+      // タイトルを更新
+      document.title = lang.title;
+      
+      // 使い方ヒントを更新
+      const usageHint = document.getElementById('usageHint');
+      if (usageHint) usageHint.innerHTML = lang.usageHint;
+      
+      // プレースホルダー更新
+      const layerName = document.getElementById('layerName');
+      if (layerName && !layerName.value) {
+        layerName.placeholder = lang.layerPlaceholder;
+      }
+      
+      // マッピング一覧タイトルを更新
+      const mappingListTitle = document.getElementById('mappingListTitle');
+      if (mappingListTitle) mappingListTitle.textContent = lang.mappingListTitle;
+      
+      // AHKスクリプトタイトルを更新
+      const ahkScriptTitle = document.getElementById('ahkScriptTitle');
+      if (ahkScriptTitle) ahkScriptTitle.textContent = lang.ahkScriptTitle;
+      
+      // ボタンを更新
+      const downloadBtn = document.getElementById('downloadBtn');
+      if (downloadBtn) downloadBtn.textContent = lang.downloadBtn;
+      
+      const saveBtn = document.getElementById('saveBtn');
+      if (saveBtn) saveBtn.textContent = lang.saveBtn;
+      
+      const loadBtn = document.getElementById('loadBtn');
+      if (loadBtn) loadBtn.childNodes[0].textContent = lang.loadBtn;
+      
+      const btnClearSelection = document.getElementById('btnClearSelection');
+      if (btnClearSelection) btnClearSelection.textContent = lang.btnClearSelection;
+      
+      const btnClearAllMappings = document.getElementById('btnClearAllMappings');
+      if (btnClearAllMappings) btnClearAllMappings.textContent = lang.btnClearAllMappings;
+      
+      // 新規レイヤーボタンを更新
+      const addLayerBtn = document.getElementById('addLayerBtn');
+      if (addLayerBtn) addLayerBtn.textContent = lang.addLayerBtn;
+      
+      // スクリプトプレースホルダーを更新（マッピングがない場合のみ）
+      const ahkOutput = document.getElementById('ahkOutput');
+      if (ahkOutput && ahkOutput.textContent.includes('; レイヤーキーマップエディタで生成されたスクリプト') || 
+          ahkOutput && ahkOutput.textContent.includes('; Script generated by Layer Keymap Editor')) {
+        ahkOutput.textContent = lang.scriptPlaceholder;
+      }
+      
+      // レイアウト選択の更新
+      const layoutSelect = document.getElementById('keyboardLayoutSelect');
+      if (layoutSelect) {
+        layoutSelect.options[0].text = lang.usLayout;
+        layoutSelect.options[1].text = lang.jisLayout;
+      }
     }
 
 
