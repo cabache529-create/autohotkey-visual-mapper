@@ -2643,18 +2643,9 @@
           if (mapping.output.length === 1 && ['WheelUp', 'WheelDown', 'WheelLeft', 'WheelRight'].includes(mapping.output[0])) {
             const wheelAction = mapping.output[0];
             
-            // レイヤーキー同士の組み合わせの場合は#HotIf構文
-            if (isLayerKeyCombo && !layer.isBase && layer.layerKey) {
-              const layerAhkKey = ahkKeyMap[layer.layerKey] || layer.layerKey.toLowerCase();
-              const inputKeyCode = mapping.input[0];
-              const inputAhkKey = ahkKeyMap[inputKeyCode] || inputKeyCode.toLowerCase();
-              const escapedInputKey = escapeAhkKey(inputAhkKey);
-              
-              script += `#HotIf GetKeyState("${layerAhkKey}", "P")\n`;
-              script += `${escapedInputKey}::Click("${wheelAction}")\n`;
-              script += `#HotIf\n`;
-            } else if (!layer.isBase && layer.layerKey) {
-              // 通常のレイヤーキー組み合わせ
+            // レイヤーキー同士の組み合わせでも & 記法を使う
+            if (!layer.isBase && layer.layerKey) {
+              // レイヤーキー組み合わせ
               script += `${inputStr}::Click("${wheelAction}")\n`;
             } else {
               // 単独キーの場合
@@ -2686,27 +2677,12 @@
             else if (mouseButton === 'XButton1') clickType = 'X1';
             else if (mouseButton === 'XButton2') clickType = 'X2';
             
-            // レイヤーキー同士の組み合わせの場合は#HotIf構文
-            if (isLayerKeyCombo && !layer.isBase && layer.layerKey) {
-              const layerAhkKey = ahkKeyMap[layer.layerKey] || layer.layerKey.toLowerCase();
-              const inputAhkKey = ahkKeyMap[lastInputKey] || lastInputKey.toLowerCase();
-              const escapedInputKey = escapeAhkKey(inputAhkKey);
-              
-              script += `#HotIf GetKeyState("${layerAhkKey}", "P")\n`;
-              script += `${escapedInputKey}:: {\n`;
-              script += `  Click("Down ${clickType}")\n`;
-              script += `  KeyWait("${checkKey}")\n`;
-              script += `  Click("Up ${clickType}")\n`;
-              script += `}\n`;
-              script += `#HotIf\n`;
-            } else {
-              // 通常の処理
-              script += `${inputStr}:: {\n`;
-              script += `  Click("Down ${clickType}")\n`;
-              script += `  KeyWait("${checkKey}")\n`;
-              script += `  Click("Up ${clickType}")\n`;
-              script += `}\n`;
-            }
+            // レイヤーキー同士の組み合わせでも & 記法を使う
+            script += `${inputStr}:: {\n`;
+            script += `  Click("Down ${clickType}")\n`;
+            script += `  KeyWait("${checkKey}")\n`;
+            script += `  Click("Up ${clickType}")\n`;
+            script += `}\n`;
             return;
           }
 
@@ -2714,19 +2690,8 @@
           if (mapping.output.length === 1 && !mapping.outputModifiers?.length) {
             const langSwitch = languageSwitchActions.find(a => a.code === mapping.output[0]);
             if (langSwitch) {
-              // レイヤーキー同士の組み合わせの場合は#HotIf構文
-              if (isLayerKeyCombo && !layer.isBase && layer.layerKey) {
-                const layerAhkKey = ahkKeyMap[layer.layerKey] || layer.layerKey.toLowerCase();
-                const inputKeyCode = mapping.input[0];
-                const inputAhkKey = ahkKeyMap[inputKeyCode] || inputKeyCode.toLowerCase();
-                const escapedInputKey = escapeAhkKey(inputAhkKey);
-                
-                script += `#HotIf GetKeyState("${layerAhkKey}", "P")\n`;
-                script += `${escapedInputKey}::${langSwitch.ahk}\n`;
-                script += `#HotIf\n`;
-              } else {
-                script += `${inputStr}::${langSwitch.ahk}\n`;
-              }
+              // レイヤーキー同士の組み合わせでも & 記法を使う
+              script += `${inputStr}::${langSwitch.ahk}\n`;
               return;
             }
           }
@@ -2743,19 +2708,8 @@
                 .replace(/\r/g, '`r')
                 .replace(/\t/g, '`t');
               
-              // レイヤーキー同士の組み合わせの場合は#HotIf構文
-              if (isLayerKeyCombo && !layer.isBase && layer.layerKey) {
-                const layerAhkKey = ahkKeyMap[layer.layerKey] || layer.layerKey.toLowerCase();
-                const inputKeyCode = mapping.input[0];
-                const inputAhkKey = ahkKeyMap[inputKeyCode] || inputKeyCode.toLowerCase();
-                const escapedInputKey = escapeAhkKey(inputAhkKey);
-                
-                script += `#HotIf GetKeyState("${layerAhkKey}", "P")\n`;
-                script += `${escapedInputKey}::SendText("${escapedValue}")\n`;
-                script += `#HotIf\n`;
-              } else {
-                script += `${inputStr}::SendText("${escapedValue}")\n`;
-              }
+              // レイヤーキー同士の組み合わせでも & 記法を使う
+              script += `${inputStr}::SendText("${escapedValue}")\n`;
               return;
             }
           }
@@ -2786,83 +2740,23 @@
               checkKey = lastInputKey.substring(3).toLowerCase();
             }
             
-            // レイヤーキー同士の組み合わせの場合は#HotIf構文
-            if (isLayerKeyCombo && !layer.isBase && layer.layerKey) {
-              const layerAhkKey = ahkKeyMap[layer.layerKey] || layer.layerKey.toLowerCase();
-              const inputAhkKey = ahkKeyMap[lastInputKey] || lastInputKey.toLowerCase();
-              const escapedInputKey = escapeAhkKey(inputAhkKey);
-              
-              script += `#HotIf GetKeyState("${layerAhkKey}", "P")\n`;
-              script += `${escapedInputKey}:: {\n`;
-              script += `  modifiers := ""\n`;
-              script += `  if GetKeyState("Shift", "P")\n`;
-              script += `    modifiers .= "+"\n`;
-              script += `  if GetKeyState("Ctrl", "P")\n`;
-              script += `    modifiers .= "^"\n`;
-              script += `  if GetKeyState("Alt", "P")\n`;
-              script += `    modifiers .= "!"\n`;
-              script += `  \n`;
-              script += `  SendEvent(modifiers . "{${ahkKey}}")\n`;
-              script += `}\n`;
-              script += `#HotIf\n`;
-            } else {
-              // 通常の処理
-              script += `${inputStr}:: {\n`;
-              script += `  modifiers := ""\n`;
-              script += `  if GetKeyState("Shift", "P")\n`;
-              script += `    modifiers .= "+"\n`;
-              script += `  if GetKeyState("Ctrl", "P")\n`;
-              script += `    modifiers .= "^"\n`;
-              script += `  if GetKeyState("Alt", "P")\n`;
-              script += `    modifiers .= "!"\n`;
-              script += `  \n`;
-              script += `  SendEvent(modifiers . "{${ahkKey}}")\n`;
-              script += `}\n`;
-            }
+            // レイヤーキー同士の組み合わせでも & 記法を使う
+            script += `${inputStr}:: {\n`;
+            script += `  modifiers := ""\n`;
+            script += `  if GetKeyState("Shift", "P")\n`;
+            script += `    modifiers .= "+"\n`;
+            script += `  if GetKeyState("Ctrl", "P")\n`;
+            script += `    modifiers .= "^"\n`;
+            script += `  if GetKeyState("Alt", "P")\n`;
+            script += `    modifiers .= "!"\n`;
+            script += `  \n`;
+            script += `  SendEvent(modifiers . "{${ahkKey}}")\n`;
+            script += `}\n`;
             return;
           }
 
           // 通常の出力キー（修飾キー対応）
           let outputStr = '';
-          
-          // レイヤーキー同士の組み合わせの場合は#HotIf構文を使用
-          if (isLayerKeyCombo && !layer.isBase && layer.layerKey) {
-            // #HotIfディレクティブを使った実装
-            const layerAhkKey = ahkKeyMap[layer.layerKey] || layer.layerKey.toLowerCase();
-            const inputKeyCode = mapping.input[0];
-            const inputAhkKey = ahkKeyMap[inputKeyCode] || inputKeyCode.toLowerCase();
-            const escapedInputKey = escapeAhkKey(inputAhkKey);
-            
-            script += `#HotIf GetKeyState("${layerAhkKey}", "P")\n`;
-            
-            // 出力を生成
-            let ifOutputStr = '';
-            if (mapping.outputModifiers && mapping.outputModifiers.length > 0) {
-              mapping.outputModifiers.forEach(mod => {
-                const modKey = modifierKeys.find(m => m.code === mod);
-                if (modKey) {
-                  ifOutputStr += modKey.ahk;
-                }
-              });
-            }
-            
-            if (mapping.output.length === 1 && mapping.outputModifiers?.length > 0) {
-              const ahkKey = ahkKeyMap[mapping.output[0]] || mapping.output[0].toLowerCase();
-              ifOutputStr += ahkKey;
-            } else if (mapping.output.length === 1) {
-              const ahkKey = ahkKeyMap[mapping.output[0]] || mapping.output[0].toLowerCase();
-              ifOutputStr += `{${ahkKey}}`;
-            } else {
-              mapping.output.forEach(key => {
-                const ahkKey = ahkKeyMap[key] || key.toLowerCase();
-                ifOutputStr += `{${ahkKey}}`;
-              });
-            }
-            
-            script += `${escapedInputKey}::SendEvent("${ifOutputStr}")\n`;
-            script += `#HotIf\n`;
-            return;
-          }
           
           // 修飾キーシンボルを前置
           if (mapping.outputModifiers && mapping.outputModifiers.length > 0) {
