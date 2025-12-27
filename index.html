@@ -36,6 +36,37 @@
       margin: 0 auto;
     }
 
+    /* ページタイトル */
+    .page-title {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 25px;
+      padding: 0;
+    }
+    
+    .page-title h1 {
+      font-size: 26px;
+      font-weight: 300;
+      color: #2d3748;
+      margin: 0;
+      letter-spacing: 0.5px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    }
+    
+    .beta-badge {
+      background: #667eea;
+      color: white;
+      padding: 3px 8px;
+      border-radius: 3px;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      opacity: 0.9;
+    }
+
     /* 言語切替ボタン */
     .lang-toggle {
       position: absolute;
@@ -1142,6 +1173,12 @@
   </div>
 
   <div class="container">
+    <!-- タイトル -->
+    <div class="page-title">
+      <h1 id="appTitle">AutoHotkey v2 Visual Mapper</h1>
+      <span class="beta-badge" id="betaBadge">BETA</span>
+    </div>
+    
     <!-- キーボードレイアウト -->
     <div class="keyboard-container">
       <div class="keyboard" id="keyboard">
@@ -3289,6 +3326,8 @@
     
     const translations = {
       ja: {
+        appTitle: 'AutoHotkey v2 Visual Mapper',
+        betaBadge: 'BETA',
         headerTitle: 'AutoHotkey v2 Visual Mapper',
         labelLayout: 'キーボード配列:',
         labelLayerName: 'レイヤー名:',
@@ -3318,6 +3357,8 @@
         scriptPlaceholder: '; Visual Mapperで生成されたスクリプト\n; マッピングを追加してください'
       },
       en: {
+        appTitle: 'AutoHotkey v2 Visual Mapper',
+        betaBadge: 'BETA',
         headerTitle: 'AutoHotkey v2 Visual Mapper',
         labelLayout: 'Keyboard Layout:',
         labelLayerName: 'Layer Name:',
@@ -3359,6 +3400,13 @@
       // ヘッダー要素を更新
       const langBtn = document.getElementById('langBtn');
       if (langBtn) langBtn.textContent = currentLang === 'ja' ? 'JA' : 'EN';
+      
+      // タイトルを更新
+      const appTitle = document.getElementById('appTitle');
+      if (appTitle) appTitle.textContent = lang.appTitle;
+      
+      const betaBadge = document.getElementById('betaBadge');
+      if (betaBadge) betaBadge.textContent = lang.betaBadge;
       
       const labelLayout = document.getElementById('labelLayout');
       if (labelLayout) labelLayout.textContent = lang.labelLayout;
