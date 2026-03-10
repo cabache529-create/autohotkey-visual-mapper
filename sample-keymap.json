@@ -1,0 +1,1291 @@
+{
+  "version": "1.1.0",
+  "created": "2026-02-19T00:53:19.986Z",
+  "layers": [
+    {
+      "id": 0,
+      "name": "Base Layer",
+      "isBase": true,
+      "layerKey": null,
+      "mappings": [
+        {
+          "input": [
+            "CapsLock"
+          ],
+          "output": [
+            "Disable"
+          ],
+          "outputModifiers": []
+        },
+        {
+          "input": [
+            "Convert"
+          ],
+          "output": [
+            "Disable"
+          ],
+          "outputModifiers": []
+        },
+        {
+          "input": [
+            "NonConvert"
+          ],
+          "output": [
+            "Disable"
+          ],
+          "outputModifiers": []
+        },
+        {
+          "input": [
+            "KanaMode"
+          ],
+          "output": [
+            "Enter"
+          ],
+          "outputModifiers": []
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "name": "マウス",
+      "isBase": false,
+      "layerKey": "CapsLock",
+      "mappings": [
+        {
+          "input": [
+            "KeyJ"
+          ],
+          "output": [
+            "LButton"
+          ],
+          "outputModifiers": []
+        },
+        {
+          "input": [
+            "KeyK"
+          ],
+          "output": [
+            "MButton"
+          ],
+          "outputModifiers": []
+        },
+        {
+          "input": [
+            "KeyL"
+          ],
+          "output": [
+            "RButton"
+          ],
+          "outputModifiers": []
+        },
+        {
+          "input": [
+            "KeyH"
+          ],
+          "output": [
+            "WheelLeft"
+          ],
+          "outputModifiers": []
+        },
+        {
+          "input": [
+            "KeyM"
+          ],
+          "output": [
+            "WheelUp"
+          ],
+          "outputModifiers": []
+        },
+        {
+          "input": [
+            "Period"
+          ],
+          "output": [
+            "WheelDown"
+          ],
+          "outputModifiers": []
+        },
+        {
+          "input": [
+            "KeyU"
+          ],
+          "output": [
+            "Backspace"
+          ],
+          "outputModifiers": []
+        },
+        {
+          "input": [
+            "KeyO"
+          ],
+          "output": [
+            "Delete"
+          ],
+          "outputModifiers": []
+        },
+        {
+          "input": [
+            "KeyP"
+          ],
+          "output": [
+            "KeyP"
+          ],
+          "outputModifiers": [
+            "ctrl"
+          ]
+        },
+        {
+          "input": [
+            "KeyQ"
+          ],
+          "output": [
+            "KeyQ"
+          ],
+          "outputModifiers": [
+            "ctrl"
+          ]
+        },
+        {
+          "input": [
+            "KeyZ"
+          ],
+          "output": [
+            "KeyZ"
+          ],
+          "outputModifiers": [
+            "ctrl"
+          ]
+        },
+        {
+          "input": [
+            "KeyX"
+          ],
+          "output": [
+            "KeyX"
+          ],
+          "outputModifiers": [
+            "ctrl"
+          ]
+        },
+        {
+          "input": [
+            "KeyC"
+          ],
+          "output": [
+            "KeyC"
+          ],
+          "outputModifiers": [
+            "ctrl"
+          ]
+        },
+        {
+          "input": [
+            "KeyV"
+          ],
+          "output": [
+            "KeyV"
+          ],
+          "outputModifiers": [
+            "ctrl"
+          ]
+        },
+        {
+          "input": [
+            "KeyF"
+          ],
+          "output": [
+            "KeyF"
+          ],
+          "outputModifiers": [
+            "ctrl"
+          ]
+        },
+        {
+          "input": [
+            "KeyB"
+          ],
+          "output": [
+            "KeyB"
+          ],
+          "outputModifiers": [
+            "ctrl"
+          ]
+        },
+        {
+          "input": [
+            "KeyA"
+          ],
+          "output": [
+            "KeyA"
+          ],
+          "outputModifiers": [
+            "ctrl"
+          ]
+        },
+        {
+          "input": [
+            "AltLeft"
+          ],
+          "output": [
+            "XButton1"
+          ],
+          "outputModifiers": []
+        },
+        {
+          "input": [
+            "NonConvert"
+          ],
+          "output": [
+            "XButton2"
+          ],
+          "outputModifiers": []
+        },
+        {
+          "input": [
+            "Quote"
+          ],
+          "output": [
+            "KeyQ"
+          ],
+          "outputModifiers": [
+            "alt"
+          ]
+        },
+        {
+          "input": [
+            "Semicolon"
+          ],
+          "output": [
+            "WheelRight"
+          ],
+          "outputModifiers": []
+        },
+        {
+          "input": [
+            "Digit1"
+          ],
+          "output": [
+            "F1"
+          ],
+          "outputModifiers": []
+        },
+        {
+          "input": [
+            "Digit2"
+          ],
+          "output": [
+            "F2"
+          ],
+          "outputModifiers": []
+        },
+        {
+          "input": [
+            "Digit3"
+          ],
+          "output": [
+            "F3"
+          ],
+          "outputModifiers": []
+        },
+        {
+          "input": [
+            "Digit4"
+          ],
+          "output": [
+            "F4"
+          ],
+          "outputModifiers": []
+        },
+        {
+          "input": [
+            "Digit5"
+          ],
+          "output": [
+            "F5"
+          ],
+          "outputModifiers": []
+        },
+        {
+          "input": [
+            "Digit6"
+          ],
+          "output": [
+            "F6"
+          ],
+          "outputModifiers": []
+        },
+        {
+          "input": [
+            "Digit7"
+          ],
+          "output": [
+            "F7"
+          ],
+          "outputModifiers": []
+        },
+        {
+          "input": [
+            "Digit8"
+          ],
+          "output": [
+            "F8"
+          ],
+          "outputModifiers": []
+        },
+        {
+          "input": [
+            "Digit9"
+          ],
+          "output": [
+            "F9"
+          ],
+          "outputModifiers": []
+        },
+        {
+          "input": [
+            "Digit0"
+          ],
+          "output": [
+            "F10"
+          ],
+          "outputModifiers": []
+        },
+        {
+          "input": [
+            "Minus"
+          ],
+          "output": [
+            "F11"
+          ],
+          "outputModifiers": []
+        },
+        {
+          "input": [
+            "Equal"
+          ],
+          "output": [
+            "F12"
+          ],
+          "outputModifiers": []
+        },
+        {
+          "input": [
+            "KeyW"
+          ],
+          "output": [
+            "KeyW"
+          ],
+          "outputModifiers": [
+            "ctrl"
+          ]
+        },
+        {
+          "input": [
+            "KeyE"
+          ],
+          "output": [
+            "KeyE"
+          ],
+          "outputModifiers": [
+            "ctrl"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "アローキー",
+      "isBase": false,
+      "layerKey": "Convert",
+      "mappings": [
+        {
+          "input": [
+            "KeyJ"
+          ],
+          "output": [
+            "ArrowLeft"
+          ],
+          "outputModifiers": []
+        },
+        {
+          "input": [
+            "KeyU"
+          ],
+          "output": [
+            "Backspace"
+          ],
+          "outputModifiers": []
+        },
+        {
+          "input": [
+            "KeyO"
+          ],
+          "output": [
+            "Delete"
+          ],
+          "outputModifiers": []
+        },
+        {
+          "input": [
+            "KeyH"
+          ],
+          "output": [
+            "Home"
+          ],
+          "outputModifiers": []
+        },
+        {
+          "input": [
+            "Semicolon"
+          ],
+          "output": [
+            "End"
+          ],
+          "outputModifiers": []
+        },
+        {
+          "input": [
+            "KeyM"
+          ],
+          "output": [
+            "PageUp"
+          ],
+          "outputModifiers": []
+        },
+        {
+          "input": [
+            "Period"
+          ],
+          "output": [
+            "PageDown"
+          ],
+          "outputModifiers": []
+        },
+        {
+          "input": [
+            "KeyP"
+          ],
+          "output": [
+            "KeyP"
+          ],
+          "outputModifiers": [
+            "ctrl"
+          ]
+        },
+        {
+          "input": [
+            "KeyQ"
+          ],
+          "output": [
+            "KeyQ"
+          ],
+          "outputModifiers": [
+            "ctrl"
+          ]
+        },
+        {
+          "input": [
+            "KeyW"
+          ],
+          "output": [
+            "KeyW"
+          ],
+          "outputModifiers": [
+            "ctrl"
+          ]
+        },
+        {
+          "input": [
+            "KeyE"
+          ],
+          "output": [
+            "KeyE"
+          ],
+          "outputModifiers": [
+            "ctrl"
+          ]
+        },
+        {
+          "input": [
+            "KeyR"
+          ],
+          "output": [
+            "KeyR"
+          ],
+          "outputModifiers": [
+            "ctrl"
+          ]
+        },
+        {
+          "input": [
+            "KeyA"
+          ],
+          "output": [
+            "KeyA"
+          ],
+          "outputModifiers": [
+            "ctrl"
+          ]
+        },
+        {
+          "input": [
+            "KeyS"
+          ],
+          "output": [
+            "KeyS"
+          ],
+          "outputModifiers": [
+            "ctrl"
+          ]
+        },
+        {
+          "input": [
+            "KeyD"
+          ],
+          "output": [
+            "KeyD"
+          ],
+          "outputModifiers": [
+            "ctrl"
+          ]
+        },
+        {
+          "input": [
+            "KeyF"
+          ],
+          "output": [
+            "KeyF"
+          ],
+          "outputModifiers": [
+            "ctrl"
+          ]
+        },
+        {
+          "input": [
+            "KeyG"
+          ],
+          "output": [
+            "KeyG"
+          ],
+          "outputModifiers": [
+            "ctrl"
+          ]
+        },
+        {
+          "input": [
+            "KeyT"
+          ],
+          "output": [
+            "KeyT"
+          ],
+          "outputModifiers": [
+            "ctrl"
+          ]
+        },
+        {
+          "input": [
+            "KeyZ"
+          ],
+          "output": [
+            "KeyZ"
+          ],
+          "outputModifiers": [
+            "ctrl"
+          ]
+        },
+        {
+          "input": [
+            "KeyX"
+          ],
+          "output": [
+            "KeyX"
+          ],
+          "outputModifiers": [
+            "ctrl"
+          ]
+        },
+        {
+          "input": [
+            "KeyC"
+          ],
+          "output": [
+            "KeyC"
+          ],
+          "outputModifiers": [
+            "ctrl"
+          ]
+        },
+        {
+          "input": [
+            "KeyV"
+          ],
+          "output": [
+            "KeyV"
+          ],
+          "outputModifiers": [
+            "ctrl"
+          ]
+        },
+        {
+          "input": [
+            "KeyB"
+          ],
+          "output": [
+            "KeyB"
+          ],
+          "outputModifiers": [
+            "ctrl"
+          ]
+        },
+        {
+          "input": [
+            "Digit1"
+          ],
+          "output": [
+            "F1"
+          ],
+          "outputModifiers": []
+        },
+        {
+          "input": [
+            "Digit2"
+          ],
+          "output": [
+            "F2"
+          ],
+          "outputModifiers": []
+        },
+        {
+          "input": [
+            "Digit3"
+          ],
+          "output": [
+            "F3"
+          ],
+          "outputModifiers": []
+        },
+        {
+          "input": [
+            "Digit4"
+          ],
+          "output": [
+            "F4"
+          ],
+          "outputModifiers": []
+        },
+        {
+          "input": [
+            "Digit5"
+          ],
+          "output": [
+            "F5"
+          ],
+          "outputModifiers": []
+        },
+        {
+          "input": [
+            "Digit6"
+          ],
+          "output": [
+            "F6"
+          ],
+          "outputModifiers": []
+        },
+        {
+          "input": [
+            "Digit7"
+          ],
+          "output": [
+            "F7"
+          ],
+          "outputModifiers": []
+        },
+        {
+          "input": [
+            "Digit8"
+          ],
+          "output": [
+            "F8"
+          ],
+          "outputModifiers": []
+        },
+        {
+          "input": [
+            "Digit9"
+          ],
+          "output": [
+            "F9"
+          ],
+          "outputModifiers": []
+        },
+        {
+          "input": [
+            "Digit0"
+          ],
+          "output": [
+            "F10"
+          ],
+          "outputModifiers": []
+        },
+        {
+          "input": [
+            "Minus"
+          ],
+          "output": [
+            "F11"
+          ],
+          "outputModifiers": []
+        },
+        {
+          "input": [
+            "Equal"
+          ],
+          "output": [
+            "F12"
+          ],
+          "outputModifiers": []
+        },
+        {
+          "input": [
+            "KeyY"
+          ],
+          "output": [
+            "KeyY"
+          ],
+          "outputModifiers": [
+            "ctrl"
+          ]
+        },
+        {
+          "input": [
+            "KeyN"
+          ],
+          "output": [
+            "KeyN"
+          ],
+          "outputModifiers": [
+            "ctrl"
+          ]
+        },
+        {
+          "input": [
+            "KeyK"
+          ],
+          "output": [
+            "ArrowDown"
+          ],
+          "outputModifiers": []
+        },
+        {
+          "input": [
+            "KeyL"
+          ],
+          "output": [
+            "ArrowRight"
+          ],
+          "outputModifiers": []
+        },
+        {
+          "input": [
+            "KeyI"
+          ],
+          "output": [
+            "ArrowUp"
+          ],
+          "outputModifiers": []
+        },
+        {
+          "input": [
+            "Space"
+          ],
+          "output": [
+            "IME_Japanese"
+          ],
+          "outputModifiers": []
+        },
+        {
+          "input": [
+            "NonConvert"
+          ],
+          "output": [
+            "IME_English"
+          ],
+          "outputModifiers": []
+        },
+        {
+          "input": [
+            "Quote"
+          ],
+          "output": [
+            "Enter"
+          ],
+          "outputModifiers": []
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "テンキー",
+      "isBase": false,
+      "layerKey": "NonConvert",
+      "mappings": [
+        {
+          "input": [
+            "KeyM"
+          ],
+          "output": [
+            "Numpad1"
+          ],
+          "outputModifiers": []
+        },
+        {
+          "input": [
+            "Comma"
+          ],
+          "output": [
+            "Numpad2"
+          ],
+          "outputModifiers": []
+        },
+        {
+          "input": [
+            "Period"
+          ],
+          "output": [
+            "Numpad3"
+          ],
+          "outputModifiers": []
+        },
+        {
+          "input": [
+            "KeyJ"
+          ],
+          "output": [
+            "Numpad4"
+          ],
+          "outputModifiers": []
+        },
+        {
+          "input": [
+            "KeyK"
+          ],
+          "output": [
+            "Numpad5"
+          ],
+          "outputModifiers": []
+        },
+        {
+          "input": [
+            "KeyL"
+          ],
+          "output": [
+            "Numpad6"
+          ],
+          "outputModifiers": []
+        },
+        {
+          "input": [
+            "KeyU"
+          ],
+          "output": [
+            "Numpad7"
+          ],
+          "outputModifiers": []
+        },
+        {
+          "input": [
+            "KeyI"
+          ],
+          "output": [
+            "Numpad8"
+          ],
+          "outputModifiers": []
+        },
+        {
+          "input": [
+            "KeyO"
+          ],
+          "output": [
+            "Numpad9"
+          ],
+          "outputModifiers": []
+        },
+        {
+          "input": [
+            "KeyH"
+          ],
+          "output": [
+            "NumpadDivide"
+          ],
+          "outputModifiers": []
+        },
+        {
+          "input": [
+            "KeyY"
+          ],
+          "output": [
+            "NumpadMultiply"
+          ],
+          "outputModifiers": []
+        },
+        {
+          "input": [
+            "Semicolon"
+          ],
+          "output": [
+            "NumpadAdd"
+          ],
+          "outputModifiers": []
+        },
+        {
+          "input": [
+            "KeyP"
+          ],
+          "output": [
+            "NumpadSubtract"
+          ],
+          "outputModifiers": []
+        },
+        {
+          "input": [
+            "Slash"
+          ],
+          "output": [
+            "NumpadDecimal"
+          ],
+          "outputModifiers": []
+        },
+        {
+          "input": [
+            "Quote"
+          ],
+          "output": [
+            "NumpadEnter"
+          ],
+          "outputModifiers": []
+        },
+        {
+          "input": [
+            "Convert"
+          ],
+          "output": [
+            "Numpad0"
+          ],
+          "outputModifiers": []
+        },
+        {
+          "input": [
+            "Space"
+          ],
+          "output": [
+            "Backspace"
+          ],
+          "outputModifiers": []
+        },
+        {
+          "input": [
+            "KeyA"
+          ],
+          "output": [
+            "KeyA"
+          ],
+          "outputModifiers": [
+            "ctrl"
+          ]
+        },
+        {
+          "input": [
+            "KeyS"
+          ],
+          "output": [
+            "KeyS"
+          ],
+          "outputModifiers": [
+            "ctrl"
+          ]
+        },
+        {
+          "input": [
+            "KeyD"
+          ],
+          "output": [
+            "KeyD"
+          ],
+          "outputModifiers": [
+            "ctrl"
+          ]
+        },
+        {
+          "input": [
+            "KeyF"
+          ],
+          "output": [
+            "KeyF"
+          ],
+          "outputModifiers": [
+            "ctrl"
+          ]
+        },
+        {
+          "input": [
+            "KeyG"
+          ],
+          "output": [
+            "KeyG"
+          ],
+          "outputModifiers": [
+            "ctrl"
+          ]
+        },
+        {
+          "input": [
+            "KeyQ"
+          ],
+          "output": [
+            "KeyQ"
+          ],
+          "outputModifiers": [
+            "ctrl"
+          ]
+        },
+        {
+          "input": [
+            "KeyW"
+          ],
+          "output": [
+            "KeyW"
+          ],
+          "outputModifiers": [
+            "ctrl"
+          ]
+        },
+        {
+          "input": [
+            "KeyE"
+          ],
+          "output": [
+            "KeyE"
+          ],
+          "outputModifiers": [
+            "ctrl"
+          ]
+        },
+        {
+          "input": [
+            "KeyR"
+          ],
+          "output": [
+            "KeyR"
+          ],
+          "outputModifiers": [
+            "ctrl"
+          ]
+        },
+        {
+          "input": [
+            "KeyT"
+          ],
+          "output": [
+            "KeyT"
+          ],
+          "outputModifiers": [
+            "ctrl"
+          ]
+        },
+        {
+          "input": [
+            "KeyZ"
+          ],
+          "output": [
+            "KeyZ"
+          ],
+          "outputModifiers": [
+            "ctrl"
+          ]
+        },
+        {
+          "input": [
+            "KeyX"
+          ],
+          "output": [
+            "KeyX"
+          ],
+          "outputModifiers": [
+            "ctrl"
+          ]
+        },
+        {
+          "input": [
+            "KeyC"
+          ],
+          "output": [
+            "KeyC"
+          ],
+          "outputModifiers": [
+            "ctrl"
+          ]
+        },
+        {
+          "input": [
+            "KeyV"
+          ],
+          "output": [
+            "KeyV"
+          ],
+          "outputModifiers": [
+            "ctrl"
+          ]
+        },
+        {
+          "input": [
+            "KeyB"
+          ],
+          "output": [
+            "KeyB"
+          ],
+          "outputModifiers": [
+            "ctrl"
+          ]
+        },
+        {
+          "input": [
+            "KeyN"
+          ],
+          "output": [
+            "KeyN"
+          ],
+          "outputModifiers": [
+            "ctrl"
+          ]
+        },
+        {
+          "input": [
+            "Digit1"
+          ],
+          "output": [
+            "F1"
+          ],
+          "outputModifiers": []
+        },
+        {
+          "input": [
+            "Digit2"
+          ],
+          "output": [
+            "F2"
+          ],
+          "outputModifiers": []
+        },
+        {
+          "input": [
+            "Digit3"
+          ],
+          "output": [
+            "F3"
+          ],
+          "outputModifiers": []
+        },
+        {
+          "input": [
+            "Digit4"
+          ],
+          "output": [
+            "F4"
+          ],
+          "outputModifiers": []
+        },
+        {
+          "input": [
+            "Digit5"
+          ],
+          "output": [
+            "F5"
+          ],
+          "outputModifiers": []
+        },
+        {
+          "input": [
+            "Digit6"
+          ],
+          "output": [
+            "F6"
+          ],
+          "outputModifiers": []
+        },
+        {
+          "input": [
+            "Digit7"
+          ],
+          "output": [
+            "F7"
+          ],
+          "outputModifiers": []
+        },
+        {
+          "input": [
+            "Digit8"
+          ],
+          "output": [
+            "F8"
+          ],
+          "outputModifiers": []
+        },
+        {
+          "input": [
+            "Digit9"
+          ],
+          "output": [
+            "F9"
+          ],
+          "outputModifiers": []
+        },
+        {
+          "input": [
+            "Digit0"
+          ],
+          "output": [
+            "F10"
+          ],
+          "outputModifiers": []
+        },
+        {
+          "input": [
+            "Minus"
+          ],
+          "output": [
+            "F11"
+          ],
+          "outputModifiers": []
+        },
+        {
+          "input": [
+            "Equal"
+          ],
+          "output": [
+            "F12"
+          ],
+          "outputModifiers": []
+        },
+        {
+          "input": [
+            "ArrowLeft"
+          ],
+          "output": [
+            "Custom_String_1"
+          ],
+          "outputModifiers": []
+        }
+      ]
+    }
+  ],
+  "currentLayout": "jis",
+  "customStrings": [
+    {
+      "id": 1,
+      "label": "test",
+      "value": "test",
+      "code": "Custom_String_1"
+    }
+  ]
+}
