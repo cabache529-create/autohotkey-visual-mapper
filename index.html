@@ -1175,59 +1175,9 @@
     <div class="page-title">
       <h1 id="appTitle">AutoHotkey v2 Visual Mapper</h1>
       <span class="beta-badge" id="betaBadge">BETA</span>
-    </div>
-    
-    <!-- 説明セクション -->
-    <div style="background: white; border-radius: 15px; padding: 30px; margin-bottom: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
-      <div style="max-width: 900px; margin: 0 auto;">
-        <h2 style="color: #2c3e50; font-size: 24px; margin-bottom: 20px; text-align: center;">
-          プログラミング不要で、直感的にキーマッピングを作成
-        </h2>
-        
-        <p style="color: #555; font-size: 16px; line-height: 1.8; margin-bottom: 20px; text-align: center;">
-          AutoHotkey v2 Visual Mapperは、キーボードのキー配置を視覚的にカスタマイズできる無料のWebツールです。<br>
-          複雑なコードを書くことなく、マウス操作だけでAutoHotkeyスクリプトを生成できます。
-        </p>
-
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin: 30px 0;">
-          <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; border-left: 4px solid #3498db;">
-            <h3 style="color: #2c3e50; font-size: 18px; margin-bottom: 10px;">✨ 視覚的な編集</h3>
-            <p style="color: #666; font-size: 14px; line-height: 1.6;">
-              実際のキーボードレイアウトを見ながら、クリック操作でキーを選択。直感的に設定できます。
-            </p>
-          </div>
-          
-          <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; border-left: 4px solid #3498db;">
-            <h3 style="color: #2c3e50; font-size: 18px; margin-bottom: 10px;">🎯 豊富な機能</h3>
-            <p style="color: #666; font-size: 14px; line-height: 1.6;">
-              レイヤー機能で1つのキーに複数の役割を持たせたり、カスタム文字列、マウス操作、メディアキーなど多彩なアクションに対応。
-            </p>
-          </div>
-          
-          <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; border-left: 4px solid #3498db;">
-            <h3 style="color: #2c3e50; font-size: 18px; margin-bottom: 10px;">⚡ 即座に使える</h3>
-            <p style="color: #666; font-size: 14px; line-height: 1.6;">
-              設定が完了したら、ボタン一つでAutoHotkey v2スクリプトをダウンロード。すぐに使い始められます。
-            </p>
-          </div>
-        </div>
-
-        <div style="text-align: center; margin-top: 25px;">
-          <a href="guide.html" style="display: inline-block; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 15px 35px; border-radius: 30px; text-decoration: none; font-weight: 600; font-size: 16px; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4); transition: all 0.3s;">
-            📖 使い方ガイドを見る
-          </a>
-        </div>
-
-        <div style="margin-top: 30px; padding: 20px; background: #fff3cd; border-radius: 10px; border-left: 4px solid #ffc107;">
-          <h3 style="color: #856404; font-size: 16px; margin-bottom: 10px;">💡 こんな方におすすめ</h3>
-          <ul style="color: #856404; font-size: 14px; line-height: 2; margin-left: 20px;">
-            <li>キーボードの配置を自分好みにカスタマイズしたい方</li>
-            <li>AutoHotkeyに興味があるがコーディングは苦手な方</li>
-            <li>仕事の効率化で定型文やショートカットを使いたい方</li>
-            <li>ゲームやクリエイティブ作業で独自のキー配置が必要な方</li>
-          </ul>
-        </div>
-      </div>
+      <button onclick="toggleDescriptionPopup()" style="margin-left: 15px; background: #667eea; color: white; border: none; padding: 8px 16px; border-radius: 20px; cursor: pointer; font-size: 14px; font-weight: 600; transition: all 0.3s; box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);" onmouseover="this.style.background='#5568d3'" onmouseout="this.style.background='#667eea'">
+        📖 使い方
+      </button>
     </div>
     
     <!-- キーボードレイアウト -->
@@ -1373,7 +1323,7 @@
     // 言語切り替えアクション定義
     const languageSwitchActions = [
       { code: 'IME_Japanese', label: '日本語に切り替え', ahk: 'SendEvent("{vkF2}")' },
-      { code: 'IME_English', label: '英語に切り替え', ahk: 'SendEvent("{vkF3}")' }
+      { code: 'IME_English', label: '英語に切り替え', ahk: 'SendEvent("{vk1A}")' }  // IMEオフの標準コード
     ];
 
     // カスタム文字列のデータ
@@ -1830,12 +1780,12 @@
       'F7': 'F7', 'F8': 'F8', 'F9': 'F9', 'F10': 'F10', 'F11': 'F11', 'F12': 'F12',
       'Backquote': '`',
       // 日本語配列専用キー
-      'Zenkaku': 'vk1Dsc07B',  // 半角/全角
-      'IntlYen': 'vk5Csc07D',   // ¥キー
-      'IntlRo': 'vkE2sc073',    // ろキー（_キー）
+      'Zenkaku': 'vk1D',        // 半角/全角
+      'IntlYen': 'vk5C',        // ¥キー
+      'IntlRo': 'vkE2',         // ろキー（_キー）
       'NonConvert': 'sc07B',    // 無変換（SCコード使用で定義不要）
       'Convert': 'sc079',       // 変換（SCコード使用で定義不要）
-      'KanaMode': 'vkF2sc070',   // カナ/ローマ字
+      'KanaMode': 'sc070',      // カナ/ローマ字（スキャンコード使用）
       // 特殊アクション
       'Disable': 'return',
       'LButton': 'LButton',
@@ -2578,6 +2528,14 @@
 
     // AHK生成
     function generateAHK() {
+      // 修飾キー定義
+      const modifierKeys = [
+        { code: 'shift', ahk: '+' },
+        { code: 'ctrl', ahk: '^' },
+        { code: 'alt', ahk: '!' },
+        { code: 'win', ahk: '#' }
+      ];
+      
       // AutoHotkeyで特殊な意味を持つ文字をエスケープする関数
       function escapeAhkKey(ahkKey) {
         const needsEscape = [';'];  // セミコロンはコメント記号なのでエスケープ必要
@@ -2591,6 +2549,7 @@
       const scToVk = {
         'sc079': 'vk1C',   // Convert（変換）
         'sc07B': 'vkEB',   // NonConvert（無変換）
+        'sc070': 'vkF2',   // KanaMode（カタカナひらがなローマ字）
         'sc027': 'sc027'   // Semicolon（セミコロン）JIS配列 - SCコードのまま使用
       };
       
@@ -2600,6 +2559,21 @@
           return scToVk[ahkKey];
         }
         return ahkKey;
+      }
+      
+      // ホットキーを出力する統一関数
+      function outputHotkey(inputStr, action) {
+        if (inputStr.startsWith('#HotIf:')) {
+          // #HotIf方式の場合、プレフィックスを分解
+          const parts = inputStr.split(':');
+          const conditions = parts[1];
+          const triggerKey = parts[2];
+          
+          return `#HotIf ${conditions}\n${triggerKey}::${action}\n#HotIf\n`;
+        } else {
+          // 従来の&記法
+          return `${inputStr}::${action}\n`;
+        }
       }
       
       let script = '; AutoHotkey v2 Layer Keymap Script\n';
@@ -2626,13 +2600,14 @@
         }
       });
       
-      // Base Layerの処理
+      // Base Layerの無効化（Disable）処理のみ
       const baseLayer = layers.find(l => l.isBase);
       if (baseLayer && baseLayer.mappings.length > 0) {
         script += `; ${baseLayer.name}\n`;
         
         // Base Layerのマッピングを処理
         baseLayer.mappings.forEach(mapping => {
+          // 無効化処理
           if (mapping.output.length === 1 && mapping.output[0] === 'Disable') {
             if (mapping.input.length === 1) {
               const keyCode = mapping.input[0];
@@ -2659,15 +2634,68 @@
               }
             }
           }
+          // 通常のキーマッピング処理（完全条件付き）
+          else if (mapping.input.length === 1 && mapping.output.length === 1) {
+            const inputKey = mapping.input[0];
+            const outputKey = mapping.output[0];
+            
+            // レイヤーキーとして使われているキーは再マップしない
+            if (layerKeys.has(inputKey)) {
+              script += `; ${inputKey} is used as layer key (remapping skipped to avoid conflicts)\n`;
+              return;
+            }
+            
+            const inputAhkKey = ahkKeyMap[inputKey] || inputKey.toLowerCase();
+            const outputAhkKey = ahkKeyMap[outputKey] || outputKey.toLowerCase();
+            const escapedInputKey = escapeAhkKey(inputAhkKey);
+            
+            // すべてのレイヤーキーが押されていない条件
+            const layerKeyConditions = Array.from(layerKeys).map(lk => {
+              let layerAhkKey = ahkKeyMap[lk] || lk.toLowerCase();
+              // scコードはGetKeyStateで使えないため、vkコードに変換
+              if (scToVk[layerAhkKey] && scToVk[layerAhkKey] !== layerAhkKey) {
+                layerAhkKey = scToVk[layerAhkKey];
+              }
+              return `!GetKeyState("${layerAhkKey}", "P")`;
+            }).join(' && ');
+            
+            script += `#HotIf ${layerKeyConditions}\n`;
+            
+            // 出力マッピングの修飾キー（マッピング設定による固定修飾キー）
+            let outputModifiers = '';
+            if (mapping.outputModifiers && mapping.outputModifiers.length > 0) {
+              mapping.outputModifiers.forEach(mod => {
+                const modKey = modifierKeys.find(m => m.code === mod);
+                if (modKey) outputModifiers += modKey.ahk;
+              });
+            }
+            
+            // *プレフィックスで修飾キー組み合わせでも発動し、
+            // GetKeyStateで実際の修飾キー状態を検出して出力に適用
+            script += `*${escapedInputKey}:: {\n`;
+            script += `  modifiers := ""\n`;
+            script += `  if GetKeyState("Shift", "P")\n`;
+            script += `    modifiers .= "+"\n`;
+            script += `  if GetKeyState("Ctrl", "P")\n`;
+            script += `    modifiers .= "^"\n`;
+            script += `  if GetKeyState("Alt", "P")\n`;
+            script += `    modifiers .= "!"\n`;
+            script += `  if GetKeyState("LWin", "P") || GetKeyState("RWin", "P")\n`;
+            script += `    modifiers .= "#"\n`;
+            if (outputModifiers) {
+              script += `  SendEvent(modifiers . "${outputModifiers}{${outputAhkKey}}")\n`;
+            } else {
+              script += `  SendEvent(modifiers . "{${outputAhkKey}}")\n`;
+            }
+            script += `}\n`;
+            script += `#HotIf\n`;
+          }
         });
-        
-        // CapsLock以外のレイヤーキーは定義しない
-        // （単独押しで本来の機能が発動するが、競合を避けるため）
         
         script += '\n';
       }
 
-      // 非Baseレイヤーの処理
+      // 非Base Layerの処理
       layers.forEach((layer, layerIndex) => {
         if (layer.isBase || layer.mappings.length === 0) return;
 
@@ -2679,28 +2707,69 @@
           let inputStr = '';
           let isLayerKeyCombo = false;  // レイヤーキー同士の組み合わせか
           
-          // レイヤーキーを前置
+          // 全入力キーのリスト（レイヤーキー + mapping.input）
+          const allInputKeys = [];
           if (!layer.isBase && layer.layerKey) {
-            const layerAhkKey = ahkKeyMap[layer.layerKey] || layer.layerKey.toLowerCase();
-            const escapedLayerKey = escapeAhkKey(layerAhkKey);
-            inputStr = escapedLayerKey;
+            allInputKeys.push(layer.layerKey);
           }
-
+          allInputKeys.push(...mapping.input);
+          
           // 入力キーがレイヤーキーかチェック
           if (mapping.input.length === 1 && layerKeys.has(mapping.input[0])) {
             isLayerKeyCombo = true;
           }
 
-          // 入力キー
-          mapping.input.forEach((key, i) => {
-            const ahkKey = ahkKeyMap[key] || key.toLowerCase();
-            const escapedKey = escapeAhkKey(ahkKey);
-            if (inputStr) inputStr += ' & ';
-            inputStr += escapedKey;
-          });
+          // 3キー以上の組み合わせは#HotIf方式で生成
+          const useHotIfMethod = allInputKeys.length >= 3;
+          
+          if (useHotIfMethod) {
+            // #HotIf方式: 最後のキー以外をGetKeyStateで条件チェック
+            const conditionKeys = allInputKeys.slice(0, -1);
+            const triggerKey = allInputKeys[allInputKeys.length - 1];
+            
+            // 条件式を生成
+            const conditions = conditionKeys.map(key => {
+              let ahkKey = ahkKeyMap[key] || key.toLowerCase();
+              // scコードはvkコードに変換
+              if (scToVk[ahkKey] && scToVk[ahkKey] !== ahkKey) {
+                ahkKey = scToVk[ahkKey];
+              }
+              return `GetKeyState("${ahkKey}", "P")`;
+            }).join(' && ');
+            
+            // トリガーキーのAHK名
+            const triggerAhkKey = ahkKeyMap[triggerKey] || triggerKey.toLowerCase();
+            const escapedTriggerKey = escapeAhkKey(triggerAhkKey);
+            
+            inputStr = escapedTriggerKey;
+            
+            // #HotIf条件を追加（後で使う）
+            inputStr = `#HotIf:${conditions}:${escapedTriggerKey}`;
+          } else {
+            // 従来の&記法（2キーまで）
+            // レイヤーキーを前置
+            if (!layer.isBase && layer.layerKey) {
+              const layerAhkKey = ahkKeyMap[layer.layerKey] || layer.layerKey.toLowerCase();
+              const escapedLayerKey = escapeAhkKey(layerAhkKey);
+              inputStr = escapedLayerKey;
+            }
+
+            // 入力キー
+            mapping.input.forEach((key, i) => {
+              const ahkKey = ahkKeyMap[key] || key.toLowerCase();
+              const escapedKey = escapeAhkKey(ahkKey);
+              if (inputStr) inputStr += ' & ';
+              inputStr += escapedKey;
+            });
+          }
 
           // 無効化チェック
           if (mapping.output.length === 1 && mapping.output[0] === 'Disable') {
+            // Base Layerの無効化は既に処理済みなのでスキップ
+            if (layer.isBase) {
+              return;
+            }
+            
             // 単独キーの無効化
             if (mapping.input.length === 1) {
               const keyCode = mapping.input[0];
@@ -2724,7 +2793,7 @@
               }
             } else {
               // 複数キーの組み合わせの無効化
-              script += `${inputStr}::return\n`;
+              script += outputHotkey(inputStr, 'return');
             }
             return;
           }
@@ -2736,10 +2805,10 @@
             // レイヤーキー同士の組み合わせでも & 記法を使う
             if (!layer.isBase && layer.layerKey) {
               // レイヤーキー組み合わせ
-              script += `${inputStr}::Click("${wheelAction}")\n`;
+              script += outputHotkey(inputStr, `Click("${wheelAction}")`);
             } else {
               // 単独キーの場合
-              script += `${inputStr}::${wheelAction}\n`;
+              script += outputHotkey(inputStr, wheelAction);
             }
             return;
           }
@@ -2768,11 +2837,8 @@
             else if (mouseButton === 'XButton2') clickType = 'X2';
             
             // レイヤーキー同士の組み合わせでも & 記法を使う
-            script += `${inputStr}:: {\n`;
-            script += `  Click("Down ${clickType}")\n`;
-            script += `  KeyWait("${checkKey}")\n`;
-            script += `  Click("Up ${clickType}")\n`;
-            script += `}\n`;
+            const action = `{\n  Click("Down ${clickType}")\n  KeyWait("${checkKey}")\n  Click("Up ${clickType}")\n}`;
+            script += outputHotkey(inputStr, action);
             return;
           }
 
@@ -2781,7 +2847,7 @@
             const langSwitch = languageSwitchActions.find(a => a.code === mapping.output[0]);
             if (langSwitch) {
               // レイヤーキー同士の組み合わせでも & 記法を使う
-              script += `${inputStr}::${langSwitch.ahk}\n`;
+              script += outputHotkey(inputStr, langSwitch.ahk);
               return;
             }
           }
@@ -2799,7 +2865,7 @@
                 .replace(/\t/g, '`t');
               
               // レイヤーキー同士の組み合わせでも & 記法を使う
-              script += `${inputStr}::SendText("${escapedValue}")\n`;
+              script += outputHotkey(inputStr, `SendText("${escapedValue}")`);
               return;
             }
           }
@@ -2810,16 +2876,16 @@
             if (outKey.startsWith('Media_') || outKey.startsWith('Volume_') || 
                 outKey.startsWith('Browser_')) {
               const ahkKey = ahkKeyMap[outKey] || outKey;
-              script += `${inputStr}::SendEvent("{${ahkKey}}")\n`;
+              script += outputHotkey(inputStr, `SendEvent("{${ahkKey}}")`);
               return;
             }
           }
 
-          // ナビゲーションキーの加速付き押し続け処理
-          // ArrowLeft, ArrowRight, ArrowUp, ArrowDown, Home, End, PageUp, PageDown
-          const navigationKeys = ['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'Home', 'End', 'PageUp', 'PageDown'];
+          // ナビゲーションキーおよび特殊キーの修飾キー対応
+          // ArrowLeft, ArrowRight, ArrowUp, ArrowDown, Home, End, PageUp, PageDown, Enter, Escape, Tab, Backspace, Delete, Space
+          const modifierAwareKeys = ['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'Home', 'End', 'PageUp', 'PageDown', 'Enter', 'Escape', 'Tab', 'Backspace', 'Delete', 'Space'];
           if (mapping.output.length === 1 && (!mapping.outputModifiers || mapping.outputModifiers.length === 0) && 
-              navigationKeys.includes(mapping.output[0])) {
+              modifierAwareKeys.includes(mapping.output[0])) {
             const navKey = mapping.output[0];
             const ahkKey = ahkKeyMap[navKey] || navKey;
             const lastInputKey = mapping.input[mapping.input.length - 1];
@@ -2831,17 +2897,8 @@
             }
             
             // レイヤーキー同士の組み合わせでも & 記法を使う
-            script += `${inputStr}:: {\n`;
-            script += `  modifiers := ""\n`;
-            script += `  if GetKeyState("Shift", "P")\n`;
-            script += `    modifiers .= "+"\n`;
-            script += `  if GetKeyState("Ctrl", "P")\n`;
-            script += `    modifiers .= "^"\n`;
-            script += `  if GetKeyState("Alt", "P")\n`;
-            script += `    modifiers .= "!"\n`;
-            script += `  \n`;
-            script += `  SendEvent(modifiers . "{${ahkKey}}")\n`;
-            script += `}\n`;
+            const action = `{\n  modifiers := ""\n  if GetKeyState("Shift", "P")\n    modifiers .= "+"\n  if GetKeyState("Ctrl", "P")\n    modifiers .= "^"\n  if GetKeyState("Alt", "P")\n    modifiers .= "!"\n  if GetKeyState("LWin", "P") || GetKeyState("RWin", "P")\n    modifiers .= "#"\n  \n  SendEvent(modifiers . "{${ahkKey}}")\n}`;
+            script += outputHotkey(inputStr, action);
             return;
           }
 
@@ -2875,7 +2932,8 @@
             });
           }
 
-          script += `${inputStr}::SendEvent("${outputStr}")\n`;
+          // #HotIf方式か&記法かを判定して出力
+          script += outputHotkey(inputStr, `SendEvent("${outputStr}")`);
         });
 
         script += '\n';
@@ -3546,5 +3604,112 @@
     init();
   
   </script>
+
+  <!-- ポップアップ式説明セクション -->
+  <div id="descriptionPopup" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: 9999; justify-content: center; align-items: center; padding: 20px;">
+    <div style="background: white; border-radius: 15px; max-width: 900px; max-height: 90vh; overflow-y: auto; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3); position: relative;">
+      <div style="position: sticky; top: 0; background: white; border-bottom: 2px solid #e0e0e0; padding: 20px; display: flex; justify-content: space-between; align-items: center; border-radius: 15px 15px 0 0; z-index: 1;">
+        <h2 style="color: #2c3e50; font-size: 24px; margin: 0;">使い方ガイド</h2>
+        <button onclick="toggleDescriptionPopup()" style="background: #ff6b6b; color: white; border: none; width: 35px; height: 35px; border-radius: 50%; cursor: pointer; font-size: 20px; font-weight: bold; transition: all 0.3s;" onmouseover="this.style.background='#ee5a6f'" onmouseout="this.style.background='#ff6b6b'">×</button>
+      </div>
+      
+      <div style="padding: 30px;">
+        <p style="color: #555; font-size: 16px; line-height: 1.8; margin-bottom: 20px; text-align: center;">
+          AutoHotkey v2 Visual Mapperは、キーボードのキー配置を視覚的にカスタマイズできる無料のWebツールです。<br>
+          複雑なコードを書くことなく、マウス操作だけでAutoHotkeyスクリプトを生成できます。
+        </p>
+
+        <div style="background: #e8f4f8; padding: 20px; border-radius: 10px; border-left: 4px solid #667eea; margin-bottom: 30px;">
+          <h3 style="color: #2c3e50; font-size: 18px; margin-bottom: 10px;">🔧 AutoHotkeyとは？</h3>
+          <p style="color: #555; font-size: 14px; line-height: 1.8; margin-bottom: 10px;">
+            AutoHotkey（オートホットキー）は、Windowsで動作する無料のキーボードマクロ・ホットキー作成ツールです。キーボードショートカットの変更、マウス操作の自動化、定型文の入力など、様々な作業を効率化できます。
+          </p>
+          <p style="color: #555; font-size: 14px; line-height: 1.8;">
+            このツールで生成されたスクリプトを使用するには、<strong>AutoHotkey v2</strong>が必要です。<br>
+            <a href="https://www.autohotkey.com/" target="_blank" rel="noopener noreferrer" style="color: #667eea; font-weight: 600; text-decoration: none; border-bottom: 2px solid #667eea;">
+              公式サイトからダウンロード →
+            </a>
+          </p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin: 30px 0;">
+          <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; border-left: 4px solid #3498db;">
+            <h3 style="color: #2c3e50; font-size: 18px; margin-bottom: 10px;">✨ 視覚的な編集</h3>
+            <p style="color: #666; font-size: 14px; line-height: 1.6;">
+              実際のキーボードレイアウトを見ながら、クリック操作でキーを選択。直感的に設定できます。
+            </p>
+          </div>
+          
+          <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; border-left: 4px solid #3498db;">
+            <h3 style="color: #2c3e50; font-size: 18px; margin-bottom: 10px;">🎯 豊富な機能</h3>
+            <p style="color: #666; font-size: 14px; line-height: 1.6;">
+              レイヤー機能で1つのキーに複数の役割を持たせたり、カスタム文字列、マウス操作、メディアキーなど多彩なアクションに対応。
+            </p>
+          </div>
+          
+          <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; border-left: 4px solid #3498db;">
+            <h3 style="color: #2c3e50; font-size: 18px; margin-bottom: 10px;">⚡ 即座に使える</h3>
+            <p style="color: #666; font-size: 14px; line-height: 1.6;">
+              設定が完了したら、ボタン一つでAutoHotkey v2スクリプトをダウンロード。すぐに使い始められます。
+            </p>
+          </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 25px;">
+          <a href="guide.html" style="display: inline-block; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 15px 35px; border-radius: 30px; text-decoration: none; font-weight: 600; font-size: 16px; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4); transition: all 0.3s;">
+            📖 詳しい使い方ガイドを見る
+          </a>
+        </div>
+
+        <div style="margin-top: 30px; padding: 20px; background: #fff3cd; border-radius: 10px; border-left: 4px solid #ffc107;">
+          <h3 style="color: #856404; font-size: 16px; margin-bottom: 10px;">💡 こんな方におすすめ</h3>
+          <ul style="color: #856404; font-size: 14px; line-height: 2; margin-left: 20px;">
+            <li>キーボードの配置を自分好みにカスタマイズしたい方</li>
+            <li>AutoHotkeyに興味があるがコーディングは苦手な方</li>
+            <li>仕事の効率化で定型文やショートカットを使いたい方</li>
+            <li>ゲームやクリエイティブ作業で独自のキー配置が必要な方</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- フッター -->
+  <footer style="text-align: center; padding: 30px 20px; margin-top: 50px; background: rgba(255,255,255,0.95); border-radius: 15px; box-shadow: 0 -4px 15px rgba(0,0,0,0.1);">
+    <div style="max-width: 800px; margin: 0 auto;">
+      <p style="margin: 15px 0; font-size: 15px;">
+        <a href="guide.html" style="color: #3498db; text-decoration: none; margin: 0 15px; font-weight: 600;">📖 使い方ガイド</a> | 
+        <a href="privacy.html" style="color: #3498db; text-decoration: none; margin: 0 15px; font-weight: 600;">🔒 プライバシーポリシー</a> | 
+        <a href="https://github.com/cabache529-create/cabache529-create.github.io/issues" target="_blank" style="color: #3498db; text-decoration: none; margin: 0 15px; font-weight: 600;">💬 バグ報告・お問い合わせ</a>
+      </p>
+      <p style="color: #7f8c8d; font-size: 14px; margin: 10px 0;">&copy; 2025 cabache529. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleDescriptionPopup() {
+      const popup = document.getElementById('descriptionPopup');
+      if (popup.style.display === 'none' || popup.style.display === '') {
+        popup.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+      } else {
+        popup.style.display = 'none';
+        document.body.style.overflow = '';
+      }
+    }
+    
+    // 背景クリックで閉じる
+    document.addEventListener('DOMContentLoaded', function() {
+      const popup = document.getElementById('descriptionPopup');
+      if (popup) {
+        popup.addEventListener('click', function(e) {
+          if (e.target === popup) {
+            toggleDescriptionPopup();
+          }
+        });
+      }
+    });
+  </script>
+
 </body>
 </html>
