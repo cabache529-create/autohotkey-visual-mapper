@@ -142,13 +142,13 @@
     <p>レイヤー機能を使うと、特定のキーを押している間だけ別のキー配置に切り替えることができます。</p>
     
     <div class="feature-box">
-        <p><strong>使用例:</strong> Spaceキーを押している間だけ、矢印キーをVimライクなHJKLに変更する</p>
+        <p><strong>使用例:</strong> 変換キーを押している間だけ、JKLでカーソル移動できるように変更する</p>
         <ol>
             <li>画面上部の<strong>「+新規レイヤー」</strong>ボタンをクリックして新しいレイヤータブを作成</li>
             <li>作成されたレイヤータブ（例: Layer1）をクリックして選択</li>
-            <li>レイヤー設定で<strong>「レイヤーキー」</strong>のドロップダウンから、トリガーとなるキー（例: Space）を選択</li>
-            <li>そのレイヤー内で、別のキーマッピングを設定（例: H→左矢印、J→下矢印など）</li>
-            <li>Spaceキーを押している間だけ、Layer1のマッピングが有効になります</li>
+            <li>レイヤー設定で<strong>「レイヤーキー」</strong>のドロップダウンから、トリガーとなるキー（例: 変換）を選択</li>
+            <li>そのレイヤー内で、別のキーマッピングを設定（例: J→左矢印、K→下矢印、L→右矢印など）</li>
+            <li>変換キーを押している間だけ、Layer1のマッピングが有効になります</li>
         </ol>
     </div>
 
@@ -176,6 +176,24 @@
 
     <div class="note">
         <strong>注意:</strong> 設定ファイルはブラウザには保存されません。必ず手動でダウンロードして保管してください。バージョン情報も保存されるため、異なるバージョン間での互換性に注意が必要です。
+    </div>
+
+    <h3>サンプル設定</h3>
+    <p>初めての方向けに、私が実際に使っている設定例を用意しました。変換キーを使ったカーソル移動など、実用的なマッピングが含まれています。</p>
+    
+    <div style="text-align: center; margin: 20px 0;">
+        <a href="sample-keymap.ahk" download style="display: inline-block; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 12px 30px; border-radius: 25px; text-decoration: none; font-weight: 600; font-size: 15px; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4); transition: all 0.3s;">
+            📥 サンプル設定をダウンロード (.ahk)
+        </a>
+    </div>
+
+    <div class="note">
+        <strong>含まれる設定例:</strong>
+        <ul style="margin-top: 10px; line-height: 1.8;">
+            <li>変換キー + J/K/L/I でカーソル移動（左/下/右/上）</li>
+            <li>その他の実用的なキーマッピング</li>
+        </ul>
+        <p style="margin-top: 10px;">このファイルはAutoHotkey v2スクリプトです。そのまま実行して動作を確認できます。</p>
     </div>
 
     <h2>AutoHotkeyスクリプトの使い方</h2>
