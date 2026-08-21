@@ -1109,8 +1109,52 @@
       color: white;
       border-color: #b45309;
     }
+
+    /* 使い方アコーディオン */
+    .usage-accordion {
+      max-width: 900px;
+      margin: 0 auto 20px auto;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+    }
+    .usage-accordion-toggle {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #667eea;
+      color: white;
+      border: none;
+      padding: 14px 22px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s;
+      text-align: left;
+    }
+    .usage-accordion-toggle:hover {
+      background: #5568d3;
+    }
+    .usage-accordion-icon {
+      display: inline-block;
+      transition: transform 0.3s ease;
+      font-size: 14px;
+    }
+    .usage-accordion-toggle[aria-expanded="true"] .usage-accordion-icon {
+      transform: rotate(180deg);
+    }
+    .usage-accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+    .usage-accordion-inner {
+      padding: 30px;
+    }
 </style>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8380247591156650"
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8380247591156650"
      crossorigin="anonymous"></script>
 </head>
 <body>
@@ -1177,9 +1221,74 @@
     <div class="page-title">
       <h1 id="appTitle">AutoHotkey v2 Visual Mapper</h1>
       <span class="beta-badge" id="betaBadge">BETA</span>
-      <button onclick="toggleDescriptionPopup()" style="margin-left: 15px; background: #667eea; color: white; border: none; padding: 8px 16px; border-radius: 20px; cursor: pointer; font-size: 14px; font-weight: 600; transition: all 0.3s; box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);" onmouseover="this.style.background='#5568d3'" onmouseout="this.style.background='#667eea'">
-        📖 使い方
+    </div>
+
+    <!-- 使い方アコーディオン -->
+    <div class="usage-accordion">
+      <button type="button" class="usage-accordion-toggle" id="usageAccordionToggle" onclick="toggleUsageAccordion()" aria-expanded="false" aria-controls="usageAccordionContent">
+        <span>📖 使い方</span>
+        <span class="usage-accordion-icon" id="usageAccordionIcon">▼</span>
       </button>
+      <div class="usage-accordion-content" id="usageAccordionContent">
+        <div class="usage-accordion-inner">
+          <p style="color: #555; font-size: 16px; line-height: 1.8; margin-bottom: 20px; text-align: center;">
+            AutoHotkey v2 Visual Mapperは、キーボードのキー配置を視覚的にカスタマイズできる無料のWebツールです。<br>
+            複雑なコードを書くことなく、マウス操作だけでAutoHotkeyスクリプトを生成できます。
+          </p>
+
+          <div style="background: #e8f4f8; padding: 20px; border-radius: 10px; border-left: 4px solid #667eea; margin-bottom: 30px;">
+            <h3 style="color: #2c3e50; font-size: 18px; margin-bottom: 10px;">🔧 AutoHotkeyとは？</h3>
+            <p style="color: #555; font-size: 14px; line-height: 1.8; margin-bottom: 10px;">
+              AutoHotkey（オートホットキー）は、Windowsで動作する無料のキーボードマクロ・ホットキー作成ツールです。キーボードショートカットの変更、マウス操作の自動化、定型文の入力など、様々な作業を効率化できます。
+            </p>
+            <p style="color: #555; font-size: 14px; line-height: 1.8;">
+              このツールで生成されたスクリプトを使用するには、<strong>AutoHotkey v2</strong>が必要です。<br>
+              <a href="https://www.autohotkey.com/" target="_blank" rel="noopener noreferrer" style="color: #667eea; font-weight: 600; text-decoration: none; border-bottom: 2px solid #667eea;">
+                公式サイトからダウンロード →
+              </a>
+            </p>
+          </div>
+
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin: 30px 0;">
+            <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; border-left: 4px solid #3498db;">
+              <h3 style="color: #2c3e50; font-size: 18px; margin-bottom: 10px;">✨ 視覚的な編集</h3>
+              <p style="color: #666; font-size: 14px; line-height: 1.6;">
+                実際のキーボードレイアウトを見ながら、クリック操作でキーを選択。直感的に設定できます。
+              </p>
+            </div>
+
+            <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; border-left: 4px solid #3498db;">
+              <h3 style="color: #2c3e50; font-size: 18px; margin-bottom: 10px;">🎯 豊富な機能</h3>
+              <p style="color: #666; font-size: 14px; line-height: 1.6;">
+                レイヤー機能で1つのキーに複数の役割を持たせたり、カスタム文字列、マウス操作、メディアキーなど多彩なアクションに対応。
+              </p>
+            </div>
+
+            <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; border-left: 4px solid #3498db;">
+              <h3 style="color: #2c3e50; font-size: 18px; margin-bottom: 10px;">⚡ 即座に使える</h3>
+              <p style="color: #666; font-size: 14px; line-height: 1.6;">
+                設定が完了したら、ボタン一つでAutoHotkey v2スクリプトをダウンロード。すぐに使い始められます。
+              </p>
+            </div>
+          </div>
+
+          <div style="text-align: center; margin-top: 25px;">
+            <a href="guide.html" style="display: inline-block; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 15px 35px; border-radius: 30px; text-decoration: none; font-weight: 600; font-size: 16px; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4); transition: all 0.3s;">
+              📖 詳しい使い方ガイドを見る
+            </a>
+          </div>
+
+          <div style="margin-top: 30px; padding: 20px; background: #fff3cd; border-radius: 10px; border-left: 4px solid #ffc107;">
+            <h3 style="color: #856404; font-size: 16px; margin-bottom: 10px;">💡 こんな方におすすめ</h3>
+            <ul style="color: #856404; font-size: 14px; line-height: 2; margin-left: 20px;">
+              <li>キーボードの配置を自分好みにカスタマイズしたい方</li>
+              <li>AutoHotkeyに興味があるがコーディングは苦手な方</li>
+              <li>仕事の効率化で定型文やショートカットを使いたい方</li>
+              <li>ゲームやクリエイティブ作業で独自のキー配置が必要な方</li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
     
     <!-- キーボードレイアウト -->
@@ -3607,75 +3716,6 @@
   
   </script>
 
-  <!-- ポップアップ式説明セクション -->
-  <div id="descriptionPopup" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: 9999; justify-content: center; align-items: center; padding: 20px;">
-    <div style="background: white; border-radius: 15px; max-width: 900px; max-height: 90vh; overflow-y: auto; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3); position: relative;">
-      <div style="position: sticky; top: 0; background: white; border-bottom: 2px solid #e0e0e0; padding: 20px; display: flex; justify-content: space-between; align-items: center; border-radius: 15px 15px 0 0; z-index: 1;">
-        <h2 style="color: #2c3e50; font-size: 24px; margin: 0;">使い方ガイド</h2>
-        <button onclick="toggleDescriptionPopup()" style="background: #ff6b6b; color: white; border: none; width: 35px; height: 35px; border-radius: 50%; cursor: pointer; font-size: 20px; font-weight: bold; transition: all 0.3s;" onmouseover="this.style.background='#ee5a6f'" onmouseout="this.style.background='#ff6b6b'">×</button>
-      </div>
-      
-      <div style="padding: 30px;">
-        <p style="color: #555; font-size: 16px; line-height: 1.8; margin-bottom: 20px; text-align: center;">
-          AutoHotkey v2 Visual Mapperは、キーボードのキー配置を視覚的にカスタマイズできる無料のWebツールです。<br>
-          複雑なコードを書くことなく、マウス操作だけでAutoHotkeyスクリプトを生成できます。
-        </p>
-
-        <div style="background: #e8f4f8; padding: 20px; border-radius: 10px; border-left: 4px solid #667eea; margin-bottom: 30px;">
-          <h3 style="color: #2c3e50; font-size: 18px; margin-bottom: 10px;">🔧 AutoHotkeyとは？</h3>
-          <p style="color: #555; font-size: 14px; line-height: 1.8; margin-bottom: 10px;">
-            AutoHotkey（オートホットキー）は、Windowsで動作する無料のキーボードマクロ・ホットキー作成ツールです。キーボードショートカットの変更、マウス操作の自動化、定型文の入力など、様々な作業を効率化できます。
-          </p>
-          <p style="color: #555; font-size: 14px; line-height: 1.8;">
-            このツールで生成されたスクリプトを使用するには、<strong>AutoHotkey v2</strong>が必要です。<br>
-            <a href="https://www.autohotkey.com/" target="_blank" rel="noopener noreferrer" style="color: #667eea; font-weight: 600; text-decoration: none; border-bottom: 2px solid #667eea;">
-              公式サイトからダウンロード →
-            </a>
-          </p>
-        </div>
-
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin: 30px 0;">
-          <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; border-left: 4px solid #3498db;">
-            <h3 style="color: #2c3e50; font-size: 18px; margin-bottom: 10px;">✨ 視覚的な編集</h3>
-            <p style="color: #666; font-size: 14px; line-height: 1.6;">
-              実際のキーボードレイアウトを見ながら、クリック操作でキーを選択。直感的に設定できます。
-            </p>
-          </div>
-          
-          <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; border-left: 4px solid #3498db;">
-            <h3 style="color: #2c3e50; font-size: 18px; margin-bottom: 10px;">🎯 豊富な機能</h3>
-            <p style="color: #666; font-size: 14px; line-height: 1.6;">
-              レイヤー機能で1つのキーに複数の役割を持たせたり、カスタム文字列、マウス操作、メディアキーなど多彩なアクションに対応。
-            </p>
-          </div>
-          
-          <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; border-left: 4px solid #3498db;">
-            <h3 style="color: #2c3e50; font-size: 18px; margin-bottom: 10px;">⚡ 即座に使える</h3>
-            <p style="color: #666; font-size: 14px; line-height: 1.6;">
-              設定が完了したら、ボタン一つでAutoHotkey v2スクリプトをダウンロード。すぐに使い始められます。
-            </p>
-          </div>
-        </div>
-
-        <div style="text-align: center; margin-top: 25px;">
-          <a href="guide.html" style="display: inline-block; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 15px 35px; border-radius: 30px; text-decoration: none; font-weight: 600; font-size: 16px; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4); transition: all 0.3s;">
-            📖 詳しい使い方ガイドを見る
-          </a>
-        </div>
-
-        <div style="margin-top: 30px; padding: 20px; background: #fff3cd; border-radius: 10px; border-left: 4px solid #ffc107;">
-          <h3 style="color: #856404; font-size: 16px; margin-bottom: 10px;">💡 こんな方におすすめ</h3>
-          <ul style="color: #856404; font-size: 14px; line-height: 2; margin-left: 20px;">
-            <li>キーボードの配置を自分好みにカスタマイズしたい方</li>
-            <li>AutoHotkeyに興味があるがコーディングは苦手な方</li>
-            <li>仕事の効率化で定型文やショートカットを使いたい方</li>
-            <li>ゲームやクリエイティブ作業で独自のキー配置が必要な方</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <!-- フッター -->
   <footer style="text-align: center; padding: 30px 20px; margin-top: 50px; background: rgba(255,255,255,0.95); border-radius: 15px; box-shadow: 0 -4px 15px rgba(0,0,0,0.1);">
     <div style="max-width: 800px; margin: 0 auto;">
@@ -3689,24 +3729,35 @@
   </footer>
 
   <script>
-    function toggleDescriptionPopup() {
-      const popup = document.getElementById('descriptionPopup');
-      if (popup.style.display === 'none' || popup.style.display === '') {
-        popup.style.display = 'flex';
-        document.body.style.overflow = 'hidden';
+    // 使い方アコーディオンの開閉
+    function toggleUsageAccordion() {
+      const toggle = document.getElementById('usageAccordionToggle');
+      const content = document.getElementById('usageAccordionContent');
+      const expanded = toggle.getAttribute('aria-expanded') === 'true';
+
+      if (expanded) {
+        // 開いている → 閉じる
+        content.style.maxHeight = content.scrollHeight + 'px'; // 現在の高さを起点にする
+        requestAnimationFrame(() => {
+          content.style.maxHeight = '0px';
+        });
+        toggle.setAttribute('aria-expanded', 'false');
       } else {
-        popup.style.display = 'none';
-        document.body.style.overflow = '';
+        // 閉じている → 開く
+        content.style.maxHeight = content.scrollHeight + 'px';
+        toggle.setAttribute('aria-expanded', 'true');
       }
     }
-    
-    // 背景クリックで閉じる
+
+    // アニメーション終了後、開いている場合は高さ制限を解除して
+    // 内部コンテンツの変化にも追従できるようにする
     document.addEventListener('DOMContentLoaded', function() {
-      const popup = document.getElementById('descriptionPopup');
-      if (popup) {
-        popup.addEventListener('click', function(e) {
-          if (e.target === popup) {
-            toggleDescriptionPopup();
+      const content = document.getElementById('usageAccordionContent');
+      const toggle = document.getElementById('usageAccordionToggle');
+      if (content && toggle) {
+        content.addEventListener('transitionend', function() {
+          if (toggle.getAttribute('aria-expanded') === 'true') {
+            content.style.maxHeight = 'none';
           }
         });
       }
