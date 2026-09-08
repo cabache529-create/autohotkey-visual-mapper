@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://cabache529-create.github.io/sitemap.xml
